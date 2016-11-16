@@ -1,0 +1,23 @@
+.transactionrow:nth-child(2n){
+    background-color: aliceblue;
+}
+
+hr {
+    margin : 0px;
+    padding: 0px;
+    border : none;
+    height: 2px;
+    color : #333;
+    background-color : #333;
+}
+.transactionrow {
+    border-bottom: 2px dotted;
+}
+
+.notification{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    height: 100px;
+    width: 200px;
+}

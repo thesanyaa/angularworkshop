@@ -10,29 +10,16 @@
     <h1 class="text-center">Túró Rudi</h1>
     <div class="container">
         <div class="row">
-            <form  novalidate name="spendingForm" class="form ">
-                <div class="col-sm-4">
-                    <input class="form-control" ng-model="newRecord.amount" type="number" placeholder="Amount" required="" name="AmountInput"><br>
-
-                    <div ng-show="spendingForm.AmountInput.$touched">
-                        <span style="color: red" ng-show="spendingForm.AmountInput.$error.required">Amount required.</span>
-                    </div>
-
-                    <textarea class="form-control" ng-model="newRecord.description"  placeholder="Description"></textarea> <br>
-                    <!--<input class="form-control" ng-model="descripton" type="text" placeholder="Description">-->
-                    <input class="form-control" ng-model="newRecord.date" type="date"><br>
-                    <button ng-click="addRecord()" class="btn btn-primary">Add</button>
-                    <button ng-click="reset(spendingForm)" class="btn btn-warning">Reset</button>
-                </div>
-            </form>
+           <ng-include src="'templates/form.templ.html'">
+           </ng-include>
         </div>
         <!--<div class="row">-->
         <br>
             <ul >
-                <div ng-repeat="transaction in listRecords()" class="transactionrow">
+                <div ng-repeat="transaction in listRecords() | orderBy: '-date' | limitTo:10" class="transactionrow">
                     <div class="row">
                         <div class="col-sm-1">
-                            <button  ng-click="deleteTransaction(transaction.id)"class="btn btn-danger btn-xs"/><span class="glyphicon glyphicon-remove"></span>
+                            <button  ng-click="deleteRecord(transaction._id)"class="btn btn-danger btn-xs"/><span class="glyphicon glyphicon-remove"></span>
                         </div>
                         <div class="col-sm-3">{{ transaction.amount | currency:"HUF ":0}}</div>
                         <div class="col-sm-3"> {{transaction.description}} </div>
@@ -42,6 +29,11 @@
             </ul>
         <!--</div>-->
     </div>
+    <div class="alert alert-success notification" ng-model="notificationmessage" ng-if="notificationmessage">
+        <a ng-click='closenotification()' class="close" data-dismiss="alert">x</a>
+        <strong>{{notificationmessage}}</strong>
+    </div>
+
 </body>
 <script src="lib/angular.min.js"></script>
 <script src="js/myApp2.js"></script>

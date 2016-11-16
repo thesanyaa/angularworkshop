@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<form  novalidate name="spendingForm" class="form ">
+<div class="col-sm-4">
+    <input class="form-control" ng-model="newRecord.amount" type="number" placeholder="Amount" required="" name="AmountInput"><br>
+
+    <div ng-show="spendingForm.AmountInput.$touched">
+        <span style="color: red" ng-show="spendingForm.AmountInput.$error.required">Amount required.</span>
+    </div>
+
+    <textarea class="form-control" ng-model="newRecord.description"  placeholder="Description"></textarea> <br>
+    <!--<input class="form-control" ng-model="descripton" type="text" placeholder="Description">-->
+    <input class="form-control" ng-model="newRecord.date" type="date"><br>
+    <button ng-click="addRecord();reset(spendingForm)" class="btn btn-primary">Add</button>
+    <button ng-click="reset(spendingForm)" class="btn btn-warning">Reset</button>
+</div>
+</form>
