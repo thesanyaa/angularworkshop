@@ -7,6 +7,10 @@
     <link href="css/spending.css" rel="stylesheet">
 </head>
 <body ng-controller="spendingController">
+    <nav>
+        <a href = "/">Home</a>
+        <a href = "/all">All</a>
+    </nav>
     <h1 class="text-center">Túró Rudi</h1>
     <div class="container">
         <div class="row">
@@ -15,18 +19,9 @@
         </div>
         <!--<div class="row">-->
         <br>
-            <ul >
-                <div ng-repeat="transaction in listRecords() | orderBy: '-date' | limitTo:10" class="transactionrow">
-                    <div class="row">
-                        <div class="col-sm-1">
-                            <button  ng-click="deleteRecord(transaction._id)"class="btn btn-danger btn-xs"/><span class="glyphicon glyphicon-remove"></span>
-                        </div>
-                        <div class="col-sm-3">{{ transaction.amount | currency:"HUF ":0}}</div>
-                        <div class="col-sm-3"> {{transaction.description}} </div>
-                        <div class="col-sm-3"> {{transaction.date}} </div>
-                    </div>
-                </div>
-            </ul>
+        <section ng-view>
+
+        </section>
         <!--</div>-->
     </div>
     <div class="alert alert-success notification" ng-model="notificationmessage" ng-if="notificationmessage">
@@ -36,6 +31,8 @@
 
 </body>
 <script src="lib/angular.min.js"></script>
+<script src="lib/angular-route.min.js"></script>
 <script src="js/myApp2.js"></script>
+<script src="js/listAllController.js"></script>
 <script src="js/storageServiceServer.js"></script>
 </html>
