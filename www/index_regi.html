@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="bodyController">
+    <p class="text-center">Welcome to Angular</p>
+    <div class="col-sm-offset-4 col-sm-4">
+        <input class="form-control" ng-model="String" placeholder="Enter a String">
+        <input class="form-control" ng-model="number"  placeholder="Enter a Number"> <br>
+        <button class="btn btn-primary" ng-click="repeatString()"><span class="glyphicon glyphicon-apple">Click</span></button>
+    </div>
+
+</body>
+<script src="lib/angular.min.js"></script>
+<script src="js/myApp.js" type="application/javascript"></script>
+</html>
